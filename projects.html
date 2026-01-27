@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects | Hitendra</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="assets/css/style.css">
+
+    <style>
+        .projects-section {
+            padding: 120px 0 60px;
+        }
+
+        .filter-container {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 50px;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            padding: 8px 20px;
+            border-radius: 30px;
+            border: 1px solid var(--primary-color);
+            background: transparent;
+            color: var(--text-color);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: var(--font-main);
+            font-weight: 500;
+        }
+
+        .filter-btn:hover,
+        .filter-btn.active {
+            background: var(--primary-color);
+            color: #fff;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .project-card {
+            border-radius: 16px;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .project-img {
+            height: 200px;
+            background-color: #333;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .project-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .project-card:hover .project-img img {
+            transform: scale(1.1);
+        }
+
+        .project-content {
+            padding: 20px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .project-title {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            color: var(--primary-color);
+        }
+
+        .project-desc {
+            font-size: 0.9rem;
+            margin-bottom: 15px;
+            color: var(--text-color);
+            opacity: 0.8;
+            flex-grow: 1;
+        }
+
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 20px;
+        }
+
+        .tech-badge {
+            font-size: 0.75rem;
+            padding: 4px 10px;
+            background: rgba(108, 99, 255, 0.1);
+            color: var(--primary-color);
+            border-radius: 12px;
+            border: 1px solid rgba(108, 99, 255, 0.2);
+        }
+
+        .project-link {
+            text-align: center;
+            margin-top: auto;
+        }
+
+        /* Animation for filtering */
+        .project-card.hide {
+            display: none;
+        }
+
+        .project-card.show {
+            animation: fadeIn 0.5s ease;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: scale(0.9);
+            }
+
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="container nav-container">
+            <a href="index.html" class="logo">Hitendra<span style="color: var(--secondary-color);">.</span></a>
+
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+
+            <ul class="nav-links">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="about.html" class="nav-link">About</a></li>
+                <li><a href="skills.html" class="nav-link">Skills</a></li>
+                <li><a href="projects.html" class="nav-link active">Projects</a></li>
+                <li><a href="resume.html" class="nav-link">Resume</a></li>
+                <li><a href="contact.html" class="nav-link">Contact</a></li>
+                <li id="theme-toggle" class="theme-toggle"><i class="fas fa-moon"></i></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Projects Section -->
+    <section class="projects-section">
+        <div class="container">
+            <h2 class="section-title reveal">My Projects</h2>
+
+            <div class="filter-container reveal">
+                <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="ml">Machine Learning</button>
+                <button class="filter-btn" data-filter="web">Web Development</button>
+            </div>
+
+            <div class="projects-grid reveal">
+
+                <!-- Project 1: Bhagawati_timber -->
+                <div class="project-card glass" data-category="web">
+                    <div class="project-img">
+                        <div
+                            style="width:100%; height:100%; background: linear-gradient(135deg, #8B4513 0%, #D2691E 100%); display: flex; justify-content: center; align-items: center;">
+                            <i class="fas fa-tree" style="font-size: 3rem; color: white;"></i>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">Bhagawati Timber</h3>
+                        <p class="project-desc">A web development project built for a timber business to manage and showcase products.</p>
+                        <div class="tech-stack">
+                            <span class="tech-badge">HTML/CSS</span>
+                            <span class="tech-badge">JavaScript</span>
+                            <span class="tech-badge">Web</span>
+                        </div>
+                        <div class="project-link">
+                            <a href="https://github.com/HR8104/Bhagawati_timber" target="_blank" class="btn btn-outline"
+                                style="padding: 8px 20px; font-size: 0.9rem;"><i class="fab fa-github"></i> View Code</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 2: Sentiment_Analysis -->
+                <div class="project-card glass" data-category="ml web">
+                    <div class="project-img">
+                        <div
+                            style="width:100%; height:100%; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); display: flex; justify-content: center; align-items: center;">
+                            <i class="fas fa-comments" style="font-size: 3rem; color: white;"></i>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">Sentiment Analysis</h3>
+                        <p class="project-desc">A web application that analyzes user-provided text sentiment using NLP models.</p>
+                        <div class="tech-stack">
+                            <span class="tech-badge">Python</span>
+                            <span class="tech-badge">NLP</span>
+                            <span class="tech-badge">Flask</span>
+                        </div>
+                        <div class="project-link">
+                            <a href="https://github.com/HR8104/Sentiment_Analysis" target="_blank" class="btn btn-outline"
+                                style="padding: 8px 20px; font-size: 0.9rem;"><i class="fab fa-github"></i> View Code</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 3: Student_Stream_Prediction_System -->
+                <div class="project-card glass" data-category="ml">
+                    <div class="project-img">
+                        <div
+                            style="width:100%; height:100%; background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 99%, #fecfef 100%); display: flex; justify-content: center; align-items: center;">
+                            <i class="fas fa-graduation-cap" style="font-size: 3rem; color: white;"></i>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">Stream Prediction</h3>
+                        <p class="project-desc">Machine Learning prediction system to help students choose the right academic stream.</p>
+                        <div class="tech-stack">
+                            <span class="tech-badge">Machine Learning</span>
+                            <span class="tech-badge">Python</span>
+                            <span class="tech-badge">Prediction</span>
+                        </div>
+                        <div class="project-link">
+                            <a href="https://github.com/HR8104/Student_Stream_Prediction_System" target="_blank" class="btn btn-outline"
+                                style="padding: 8px 20px; font-size: 0.9rem;"><i class="fab fa-github"></i> View Code</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 4: upskillcampus -->
+                <div class="project-card glass" data-category="web">
+                    <div class="project-img">
+                        <div
+                            style="width:100%; height:100%; background: linear-gradient(135deg, #a18cd1 0%, #fbc2eb 100%); display: flex; justify-content: center; align-items: center;">
+                            <i class="fas fa-laptop-code" style="font-size: 3rem; color: white;"></i>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">Upskill Campus</h3>
+                        <p class="project-desc">An educational platform project aimed at enhancing student skills and learning.</p>
+                        <div class="tech-stack">
+                            <span class="tech-badge">Web Dev</span>
+                            <span class="tech-badge">Education</span>
+                            <span class="tech-badge">Platform</span>
+                        </div>
+                        <div class="project-link">
+                            <a href="https://github.com/HR8104/upskillcampus" target="_blank" class="btn btn-outline"
+                                style="padding: 8px 20px; font-size: 0.9rem;"><i class="fab fa-github"></i> View Code</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 5: Expense_Tracker -->
+                <div class="project-card glass" data-category="web">
+                    <div class="project-img">
+                        <div
+                            style="width:100%; height:100%; background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%); display: flex; justify-content: center; align-items: center;">
+                            <i class="fas fa-wallet" style="font-size: 3rem; color: white;"></i>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">Expense Tracker</h3>
+                        <p class="project-desc">Full-stack web application to track daily expenses and manage personal finances.</p>
+                        <div class="tech-stack">
+                            <span class="tech-badge">Web App</span>
+                            <span class="tech-badge">Finance</span>
+                            <span class="tech-badge">Tracker</span>
+                        </div>
+                        <div class="project-link">
+                            <a href="https://github.com/HR8104/Expense_Tracker" target="_blank" class="btn btn-outline"
+                                style="padding: 8px 20px; font-size: 0.9rem;"><i class="fab fa-github"></i> View Code</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 6: Email_Classifier -->
+                <div class="project-card glass" data-category="ml">
+                    <div class="project-img">
+                        <div
+                            style="width:100%; height:100%; background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); display: flex; justify-content: center; align-items: center;">
+                            <i class="fas fa-envelope-open-text" style="font-size: 3rem; color: white;"></i>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">Email Classifier</h3>
+                        <p class="project-desc">A Machine Learning model geared towards classifying emails (e.g., Spam vs Ham).</p>
+                        <div class="tech-stack">
+                            <span class="tech-badge">Python</span>
+                            <span class="tech-badge">Classification</span>
+                            <span class="tech-badge">ML</span>
+                        </div>
+                        <div class="project-link">
+                            <a href="https://github.com/HR8104/Email_Classifier" target="_blank" class="btn btn-outline"
+                                style="padding: 8px 20px; font-size: 0.9rem;"><i class="fab fa-github"></i> View Code</a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="social-links">
+                <a href="https://www.github.com/hr8104" class="social-icon"><i class="fab fa-github"></i></a>
+                <a href="https://www.linkedin.com/in/hr8104" class="social-icon"><i class="fab fa-linkedin"></i></a>
+                <a href="mailto:hitendra.rathod.cse@gmail.com" class="social-icon"><i class="fas fa-envelope"></i></a>
+            </div>
+            <p>&copy; 2025 Hitendra. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="assets/js/main.js"></script>
+    <script>
+        // Project Filtering Logic
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const projectCards = document.querySelectorAll('.project-card');
+
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                // Remove active class from all buttons
+                filterBtns.forEach(b => b.classList.remove('active'));
+                // Add active class to clicked button
+                btn.classList.add('active');
+
+                const filterValue = btn.getAttribute('data-filter');
+
+                projectCards.forEach(card => {
+                    if (filterValue === 'all') {
+                        card.classList.remove('hide');
+                        card.classList.add('show');
+                    } else {
+                        if (card.getAttribute('data-category').includes(filterValue)) {
+                            card.classList.remove('hide');
+                            card.classList.add('show');
+                        } else {
+                            card.classList.add('hide');
+                            card.classList.remove('show');
+                        }
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>
